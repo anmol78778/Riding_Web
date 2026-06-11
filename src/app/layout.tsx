@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 
+// import Provider from "@/lib/Provider";
+// import ReduxProvider from "@/redux/ReduxProvider";
+// import InitUser from "@/InitUser";
+import "./globals.css";
+import { SessionProvider } from "next-auth/react";
+import Provider from "@/lib/Provider";
+// import "leaflet/dist/leaflet.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -14,7 +20,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "RYDEX - Smart Vehicle Booking Platform",
-  description: "RYDEX is an multi vehicle booking platform that offers a seamless and efficient way to book various types of vehicles for different purposes. Whether you need a car for a business trip, a van for moving, or a bike for a quick commute, RYDEX has got you covered. With its user-friendly interface and advanced features, RYDEX makes vehicle booking easy and convenient for everyone.",
+  description: "RYDEX ek modern multi-vendor vehicle booking platform hai jahan users aasaani se cars, bikes aur commercial vehicles book kar sakte hain. Secure login, verified owners aur transparent pricing ke saath RYDEX mobility ko simple aur reliable banata hai.",
 };
 
 export default function RootLayout({
@@ -23,11 +29,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <Provider>
+          
+  {children}
+         
+        </Provider>
+      </body>
     </html>
   );
 }
