@@ -8,8 +8,8 @@ import {
   FaInstagram,
   FaLinkedin,
   FaTwitch,
-  FaTwitter
-} from "react-icons/fa";
+  FaXTwitter 
+} from "react-icons/fa6";
 function Footer() {
   return (
     <div className='w-full bg-black text-white'>
@@ -26,7 +26,7 @@ function Footer() {
             <p className='mt-4 text-gray-400 text-sm leading-relaxed'>Book any vehicle — from bikes to trucks. Trusted owners. Transparent pricing.</p>
 
             <div className='flex gap-4 mt-6'>
-              {[FaFacebook, FaInstagram, FaTwitter, FaLinkedin].map((Icon, i) => (
+              {[FaFacebook, FaInstagram, FaXTwitter , FaLinkedin].map((Icon, i) => (
                 <motion.a
                   key={i}
                   whileHover={{ y: -3 }}
