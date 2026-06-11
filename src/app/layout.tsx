@@ -7,6 +7,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import Provider from "@/lib/Provider";
+import ReduxProvider from "@/redux/ReduxProvider";
+import InitUser from "@/InitUser";
 // import "leaflet/dist/leaflet.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,9 +36,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Provider>
-          
+          <ReduxProvider>
+            <InitUser/>
   {children}
-         
+          </ReduxProvider>
         </Provider>
       </body>
     </html>
